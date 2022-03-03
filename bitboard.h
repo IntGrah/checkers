@@ -21,6 +21,6 @@ constexpr U64 NOT_H = 0x7f7f7f7f7f7f7f7f;
 constexpr U64 NOT_AB = 0xfcfcfcfcfcfcfcfc;
 constexpr U64 NOT_GH = 0x3f3f3f3f3f3f3f3f;
 
-void print(const U64 bb) // A debug function which pretty prints a bitboard
+void print(const U64 bb); // A debug function which pretty prints a bitboard
 
 #endif // #ifndef BITBOARD_H
