@@ -21,7 +21,4 @@ constexpr U64 diagonals[15] = {
     0x8000000000000000,
 };
 
-int head(U64 bb);
-int tail(U64 bb);
-
 #endif // #ifndef EVALUATION_H

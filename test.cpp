@@ -1,13 +1,18 @@
 #include <iostream>
 
 #include "evaluation.h"
-#include "gamenode.h"
+#include "node.h"
+
+constexpr U64 START_X = 0x000000000103070f;
+constexpr U64 START_O = 0xf0e0c08000000000;
+constexpr U64 START_U = START_X & START_O;
 
 int main()
 {
-    GameNode start(START_X, START_O, true);
-    for (auto child : start.children())
-    {
-        print(child.x);
-    }
+    Node START(START_X, START_O, true);
+    print(START.x);
+    print(START.o);
+    print(START.u);
+    std::cout << START.heuristicEvaluate();
+    std::cout << START.evaluate(2);
 }
