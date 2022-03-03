@@ -1,4 +1,3 @@
-#include "evaluation.h"
 #include "gamenode.h"
 
 GameNode::GameNode(const U64 x, const U64 o, const bool turn)

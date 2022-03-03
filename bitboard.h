@@ -11,10 +11,7 @@
 #ifndef BITBOARD_H
 #define BITBOARD_H
 
-#include <cstdint>
-#include <iostream>
-
-typedef uint64_t U64;
+typedef unsigned long long U64;
 
 constexpr U64 START_U = 0xf0e0c0800103070f;
 constexpr U64 START_X = 0x000000000103070f;
@@ -25,20 +22,5 @@ constexpr U64 NOT_AB = 0xfcfcfcfcfcfcfcfc;
 constexpr U64 NOT_GH = 0x3f3f3f3f3f3f3f3f;
 
 void print(const U64 bb) // A debug function which pretty prints a bitboard
-{
-  U64 comparator = 1ULL << 63;
-  int line = 0;
-  while (comparator)
-  {
-    std::cout << !!(bb & comparator);
-    comparator >>= 1;
-    if (++line == 8)
-    {
-      line = 0;
-      std::cout << "\n";
-    }
-  }
-  std::cout << "\n";
-}
 
 #endif // #ifndef BITBOARD_H

@@ -1,11 +1,13 @@
 #include <iostream>
 
 #include "evaluation.h"
+#include "gamenode.h"
 
 int main()
 {
-    // for (auto child : start.children())
-    // {
-    //     print(child.x);
-    // }
+    GameNode start(START_X, START_O, true);
+    for (auto child : start.children())
+    {
+        print(child.x);
+    }
 }
