@@ -12,9 +12,10 @@ public:
     U64 o;     // Player O's pieces
     U64 u;     // Union, all pieces
     bool turn; // True: X's turn, false: O's turn
+    int sum;   // Sum of magnitude of all pieces
 
 public:
-    Node(const U64 x, const U64 o, const bool turn); // node.cpp
+    Node(const U64 x, const U64 o, const bool turn, const int sum); // node.cpp
     int evaluate(const int depth);                   // search.cpp
 
 public:

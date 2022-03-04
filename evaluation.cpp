@@ -3,8 +3,7 @@
 
 int Node::heuristicEvaluate()
 {
-    // TO DO
-    return tailX() + tailO() - 14;
+    return sum + tailX() + tailO() - 14;
 }
 
 int Node::tailX()

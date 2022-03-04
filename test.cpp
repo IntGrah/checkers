@@ -9,10 +9,7 @@ constexpr U64 START_U = START_X & START_O;
 
 int main()
 {
-    Node START(START_X, START_O, true);
-    print(START.x);
-    print(START.o);
-    print(START.u);
-    std::cout << START.heuristicEvaluate();
-    std::cout << START.evaluate(2);
+    Node START(START_X, START_O, true, 0);
+    std::cout << START.evaluate(5);
+    print(0x0101010101010101ULL);
 }
