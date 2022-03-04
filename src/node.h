@@ -1,6 +1,7 @@
 #ifndef GAMENODE_H
 #define GAMENODE_H
 
+#include <ostream>
 #include <vector>
 
 #include "bitboard.h"
@@ -28,5 +29,7 @@ public:
     int tailPlayerTwo();             // evaluation.cpp
     int heuristicEvaluate();         // evaluation.cpp
 };
+
+std::ostream &operator<<(std::ostream &stream, Node &node);
 
 #endif // #ifndef GAMENODE_H

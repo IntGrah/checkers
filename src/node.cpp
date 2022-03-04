@@ -8,3 +8,9 @@ Node::Node(const U64 playerOne, const U64 playerTwo, const bool turn, const int 
     this->turn = turn;
     this->sum = sum;
 }
+
+std::ostream &operator<<(std::ostream &stream, Node &node)
+{
+    print(node.playerAll);
+    return stream;
+}

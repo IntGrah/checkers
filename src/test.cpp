@@ -10,5 +10,9 @@ constexpr U64 START_PLAYER_ALL = START_PLAYER_ONE & START_PLAYER_TWO;
 int main()
 {
     Node START(START_PLAYER_ONE, START_PLAYER_TWO, true, 0);
+    for (auto child : *START.populate())
+    {
+        std::cout << child << child.evaluate(2) << "\n\n";
+    }
     std::cout << START.evaluate(3);
 }
