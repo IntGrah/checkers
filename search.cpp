@@ -1,3 +1,4 @@
+#include <algorithm>
 #include <vector>
 
 #include "evaluation.h"
@@ -21,33 +22,11 @@ int Node::evaluate(const int depth)
     {
         return heuristicEvaluate();
     }
-    std::vector<int> evaluations = {};
-    std::vector<Node> chn = children();
-    int size = chn.size();
-    int evaluation;
-    if (turn)
+    int size = (*populate()).size();
+    std::vector<int> evaluations(size);
+    for (int i = 0; i < size; ++i)
     {
-        evaluation = -10000;
-        for (int i = 0; i < size; i++)
-        {
-            int childEvaluation = chn[i].evaluate(depth - 1);
-            if (childEvaluation > evaluation)
-            {
-                evaluation = childEvaluation;
-            }
-        }
+        evaluations[i] = children[i].evaluate(depth - 1);
     }
-    else
-    {
-        evaluation = 10000;
-        for (int i = 0; i < size; i++)
-        {
-            int childEvaluation = chn[i].evaluate(depth - 1);
-            if (childEvaluation < evaluation)
-            {
-                evaluation = childEvaluation;
-            }
-        }
-    }
-    return evaluation;
+    return turn ? *max_element(evaluations.begin(), evaluations.end()) : *min_element(evaluations.begin(), evaluations.end());
 }

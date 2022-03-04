@@ -30,13 +30,13 @@ const int index[64] = {
    25, 14, 19,  9, 13,  8,  7,  6
 };
 
-inline int bitScanForward(U64 bb)
+int bitScanForward(U64 bb)
 {
   constexpr U64 deBruijn64 = 0x03f79d71b4cb0a89;
   return index[((bb & -bb) * deBruijn64) >> 58];
 }
 
-inline int magnitude(U64 bb)
+int magnitude(U64 bb)
 {
   int index = bitScanForward(bb);
   int file = index % 8;

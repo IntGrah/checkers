@@ -10,7 +10,7 @@ U64 Node::minorMoves(const U64 p) // A minor move is a move which does not jump 
 U64 Node::majorMoves(const U64 p) // A major move is a move which jumps over a piece.
 {
   U64 d = p;
-  U64 previous;
+  U64 previous = 0;
   while (previous != d) // If no more destinations were added, stop.
   {
     previous = d; // Store the result of the previous iteration.
@@ -24,9 +24,8 @@ U64 Node::pieceMoves(const U64 p) // Combines minor and major moves;
   return minorMoves(p) | majorMoves(p);
 }
 
-std::vector<Node> Node::children() // Generates a vector of all possible child nodes.
+std::vector<Node> *Node::populate() // Generates children with all possible child nodes.
 {
-  std::vector<Node> children{};
   U64 pieces = turn ? x : o;
   while (pieces)
   {
@@ -53,5 +52,5 @@ std::vector<Node> Node::children() // Generates a vector of all possible child n
       children.push_back(Node(_x, _o, !turn, sum + sumChange));
     }
   }
-  return children; // Sort by magnitude?
+  return &children; // Sort by magnitude?
 }
