@@ -1,5 +1,4 @@
 #include <algorithm>
-#include <vector>
 
 #include "evaluation.h"
 #include "node.h"

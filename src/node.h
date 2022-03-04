@@ -17,17 +17,18 @@ public:
     std::vector<Node> children; // Child nodes
 
 public:
-    Node(const U64 x, const U64 o, const bool turn, const int sum); // node.cpp
-    int evaluate(const int depth);                                  // search.cpp
+    constexpr Node(const U64 x, const U64 o, const bool turn, const int sum); // node.cpp
+    int evaluate(const int depth);                                            // search.cpp
 
 public:
-    U64 minorMoves(const U64 piece); // movegen.cpp
-    U64 majorMoves(const U64 piece); // movegen.cpp
-    U64 pieceMoves(const U64 piece); // movegen.cpp
-    std::vector<Node> *populate();   // movegen.cpp
-    int tailPlayerOne();             // evaluation.cpp
-    int tailPlayerTwo();             // evaluation.cpp
-    int heuristicEvaluate();         // evaluation.cpp
+    constexpr U64 minorMoves(const U64 piece) const; // movegen.cpp
+    constexpr U64 majorMoves(const U64 piece) const; // movegen.cpp
+    constexpr U64 pieceMoves(const U64 piece) const; // movegen.cpp
+    std::vector<Node> *populate();                   // movegen.cpp
+    
+    constexpr int tailPlayerOne() const;             // evaluation.cpp
+    constexpr int tailPlayerTwo() const;             // evaluation.cpp
+    constexpr int heuristicEvaluate() const;         // evaluation.cpp
 };
 
 std::ostream &operator<<(std::ostream &stream, Node &node);

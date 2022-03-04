@@ -1,12 +1,12 @@
 #include "evaluation.h"
 #include "node.h"
 
-int Node::heuristicEvaluate()
+constexpr int Node::heuristicEvaluate() const
 {
     return sum + tailPlayerOne() + tailPlayerTwo() - 14;
 }
 
-int Node::tailPlayerOne()
+constexpr int Node::tailPlayerOne() const
 {
     for (int i = 0; i < 15; ++i)
     {
@@ -18,7 +18,7 @@ int Node::tailPlayerOne()
     return -1;
 }
 
-int Node::tailPlayerTwo()
+constexpr int Node::tailPlayerTwo() const
 {
     {
         for (int i = 14; i >= 0; --i)
