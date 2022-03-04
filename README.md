@@ -21,6 +21,6 @@
 
   Represented by the 64 bit integer 0xf0e0c0800103070f, or 0b1111000011100000110000001000000000000001000000110000011100001111
 
-  Bottom right (least significant bit): Player X, who goes first.
-  Top left (most significant bit): Player O, who goes second.
+  Bottom right (least significant bit): Player one, who goes first.
+  Top left (most significant bit): Player two, who goes second.
 ```

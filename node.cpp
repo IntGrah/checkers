@@ -1,10 +1,10 @@
 #include "node.h"
 
-Node::Node(const U64 x, const U64 o, const bool turn, const int sum)
+Node::Node(const U64 playerOne, const U64 playerTwo, const bool turn, const int sum)
 {
-    this->x = x;
-    this->o = o;
-    this->u = x | o;
+    this->playerOne = playerOne;
+    this->playerTwo = playerTwo;
+    this->playerAll = playerOne | playerTwo;
     this->turn = turn;
     this->sum = sum;
 }

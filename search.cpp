@@ -9,11 +9,11 @@ int Node::evaluate(const int depth)
 {
     if (!turn)
     {
-        if (tailX() == 11)
+        if (tailPlayerOne() == 11)
         {
             return 1000 + depth;
         }
-        if (tailO() == 3)
+        if (tailPlayerTwo() == 3)
         {
             return -1000 - depth;
         }

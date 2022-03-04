@@ -3,14 +3,14 @@
 
 int Node::heuristicEvaluate()
 {
-    return sum + tailX() + tailO() - 14;
+    return sum + tailPlayerOne() + tailPlayerTwo() - 14;
 }
 
-int Node::tailX()
+int Node::tailPlayerOne()
 {
     for (int i = 0; i < 15; ++i)
     {
-        if (!!(x & diagonals[i]))
+        if (!!(playerOne & diagonals[i]))
         {
             return i;
         }
@@ -18,12 +18,12 @@ int Node::tailX()
     return -1;
 }
 
-int Node::tailO()
+int Node::tailPlayerTwo()
 {
     {
         for (int i = 14; i >= 0; --i)
         {
-            if (!!(o & diagonals[i]))
+            if (!!(playerTwo & diagonals[i]))
             {
                 return i;
             }

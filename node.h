@@ -8,11 +8,11 @@
 class Node
 {
 public:
-    U64 x;                        // Player X's pieces
-    U64 o;                        // Player O's pieces
-    U64 u;                        // Union, all pieces
-    bool turn;                    // True: X's turn, false: O's turn
-    int sum;                      // Sum of magnitude of all pieces
+    U64 playerOne;              // Player one's pieces
+    U64 playerTwo;              // Player two's pieces
+    U64 playerAll;              // All pieces
+    bool turn;                  // True: player one's turn, false: player two's turn
+    int sum;                    // Sum of magnitude of all pieces
     std::vector<Node> children; // Child nodes
 
 public:
@@ -23,9 +23,9 @@ public:
     U64 minorMoves(const U64 piece); // movegen.cpp
     U64 majorMoves(const U64 piece); // movegen.cpp
     U64 pieceMoves(const U64 piece); // movegen.cpp
-    std::vector<Node> *populate(); // movegen.cpp
-    int tailX();                     // evaluation.cpp
-    int tailO();                     // evaluation.cpp
+    std::vector<Node> *populate();   // movegen.cpp
+    int tailPlayerOne();             // evaluation.cpp
+    int tailPlayerTwo();             // evaluation.cpp
     int heuristicEvaluate();         // evaluation.cpp
 };
 
