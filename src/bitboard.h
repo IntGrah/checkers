@@ -27,10 +27,10 @@ typedef unsigned long long U64;
   U64 ibb = bb & -bb;       \
   bb ^= ibb
 
-inline void print(const U64 bb); // A debug function which pretty prints a bitboard.
+void print(const U64 bb); // A debug function which pretty prints a bitboard.
 
-inline int bitScanForward(U64 bb); // Returns the index of the least significant set bit. This algorithm uses de Bruijn sequences to achieve constant time complexity.
+int bitScanForward(U64 bb); // Returns the index of the least significant set bit. This algorithm uses de Bruijn sequences to achieve constant time complexity.
 
-inline int magnitude(U64 bb); // Computes the taxicab distance of a piece from (0, 0).
+int magnitude(U64 bb); // Computes the taxicab distance of a piece from (0, 0).
 
 #endif // #ifndef BITBOARD_H

@@ -1,6 +1,6 @@
 #include "node.h"
 
-constexpr Node::Node(const U64 playerOne, const U64 playerTwo, const bool turn, const int sum)
+Node::Node(const U64 playerOne, const U64 playerTwo, const bool turn, const int sum)
 {
     this->playerOne = playerOne;
     this->playerTwo = playerTwo;
@@ -9,8 +9,3 @@ constexpr Node::Node(const U64 playerOne, const U64 playerTwo, const bool turn, 
     this->sum = sum;
 }
 
-std::ostream &operator<<(std::ostream &stream, Node &node)
-{
-    print(node.playerAll);
-    return stream;
-}

@@ -2,7 +2,7 @@
 
 #include "bitboard.h"
 
-inline void print(const U64 bb) // A debug function which pretty prints a bitboard
+void print(const U64 bb) // A debug function which pretty prints a bitboard
 {
   U64 comparator = 1ULL << 63;
   int line = 0;
@@ -37,13 +37,13 @@ const int index[64] = {
  *         Harald Prokop
  *         Keith H. Randall
  */
-inline int bitScanForward(U64 bb)
+int bitScanForward(U64 bb)
 {
   constexpr U64 deBruijn64 = 0x03f79d71b4cb0a89;
   return index[((bb & -bb) * deBruijn64) >> 58];
 }
 
-inline int magnitude(U64 bb)
+int magnitude(U64 bb)
 {
   int index = bitScanForward(bb);
   int file = index % 8;

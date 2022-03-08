@@ -19,13 +19,14 @@ U64 Node::majorMoves(const U64 p) const // A major move is a move which jumps ov
   return d & ~p; // The starting position of the piece is not a valid destination
 }
 
-constexpr U64 Node::pieceMoves(const U64 p) const // Combines minor and major moves;
+U64 Node::pieceMoves(const U64 p) const // Combines minor and major moves;
 {
   return minorMoves(p) | majorMoves(p);
 }
 
-std::vector<Node> *Node::populate() // Generates children with all possible child nodes.
+std::vector<Node> Node::populate() // Generates all possible child nodes.
 {
+  std::vector<Node> children;
   U64 pieces = turn ? playerOne : playerTwo;
   while (pieces)
   {
@@ -52,5 +53,5 @@ std::vector<Node> *Node::populate() // Generates children with all possible chil
       children.push_back(Node(_playerOne, _playerTwo, !turn, sum + sumChange));
     }
   }
-  return &children; // Sort by magnitude?
+  return children; // Sort by magnitude?
 }

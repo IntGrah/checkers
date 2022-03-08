@@ -1,4 +1,5 @@
 #include <algorithm>
+#include <iostream>
 
 #include "evaluation.h"
 #include "node.h"
@@ -21,11 +22,18 @@ int Node::evaluate(const int depth)
     {
         return heuristicEvaluate();
     }
-    int size = (*populate()).size();
-    std::vector<int> evaluations(size);
+    evaluations.clear();
+    std::vector<Node> children = populate();
+    int size = children.size();
     for (int i = 0; i < size; ++i)
     {
-        evaluations[i] = children[i].evaluate(depth - 1);
+        evaluations.push_back(children[i].evaluate(depth - 1));
     }
-    return turn ? *max_element(evaluations.begin(), evaluations.end()) : *min_element(evaluations.begin(), evaluations.end());
+    return turn ? max(evaluations) : min(evaluations);
+}
+
+Node Node::bestMove(const int depth)
+{
+    evaluate(depth);
+    return populate()[std::distance(evaluations.begin(), std::max_element(evaluations.begin(), evaluations.end()))];
 }
