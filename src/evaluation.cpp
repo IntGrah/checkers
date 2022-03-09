@@ -31,3 +31,8 @@ int Node::heuristicEvaluate() const
 {
     return sum + tailPlayerOne() + tailPlayerTwo() - 14;
 }
+
+bool Node::terminated() const
+{
+    return tailPlayerOne() == 11 || tailPlayerTwo() == 3;
+}

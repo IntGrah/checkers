@@ -7,16 +7,13 @@
 
 int Node::evaluate(const int depth)
 {
-    if (!turn)
+    if (turn && tailPlayerTwo() == 3)
     {
-        if (tailPlayerOne() == 11)
-        {
-            return 1000 + depth;
-        }
-        if (tailPlayerTwo() == 3)
-        {
-            return -1000 - depth;
-        }
+        return -1000 - depth;
+    }
+    if (!turn && tailPlayerOne() == 11)
+    {
+        return 1000 + depth;
     }
     if (depth == 0)
     {
@@ -34,6 +31,5 @@ int Node::evaluate(const int depth)
 
 Node Node::bestMove(const int depth)
 {
-    evaluate(depth);
-    return populate()[std::distance(evaluations.begin(), std::max_element(evaluations.begin(), evaluations.end()))];
+    return populate()[std::distance(evaluations.begin(), std::find(evaluations.begin(), evaluations.end(), evaluate(depth)))];
 }

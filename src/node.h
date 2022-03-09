@@ -1,7 +1,6 @@
 #ifndef GAMENODE_H
 #define GAMENODE_H
 
-#include <ostream>
 #include <vector>
 
 #include "bitboard.h"
@@ -18,11 +17,14 @@ public:
 
 public:
     Node(const U64 x, const U64 o, const bool turn, const int sum); // node.cpp
+    void print() const;                                             // node.cpp
     int evaluate(const int depth);                                  // search.cpp
     Node bestMove(const int depth);                                 // search.cpp
+    bool terminated() const;                                        // evaluation.cpp
 
-private:
-    U64 minorMoves(const U64 piece) const; // movegen.cpp
+public:
+    U64
+    minorMoves(const U64 piece) const;     // movegen.cpp
     U64 majorMoves(const U64 piece) const; // movegen.cpp
     U64 pieceMoves(const U64 piece) const; // movegen.cpp
     std::vector<Node> populate();          // movegen.cpp
@@ -31,7 +33,5 @@ private:
     int tailPlayerTwo() const;     // evaluation.cpp
     int heuristicEvaluate() const; // evaluation.cpp
 };
-
-std::ostream &operator<<(std::ostream &stream, Node &node);
 
 #endif // #ifndef GAMENODE_H

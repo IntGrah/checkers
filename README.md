@@ -1,10 +1,13 @@
 # checkers
+
 ### Simplifications:
+
 - The board is 8x8, not 9x9 in order to fit one board into a 64 bit integer.
 - There are only two players.
 - A move which moves backwards too much is not considered by the engine.
 
 ### The structure of bitboards is shown below.
+
 ```
   BITBOARD ARCHITECTURE
 
