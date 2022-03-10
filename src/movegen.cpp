@@ -1,13 +1,13 @@
 #include "movegen.h"
 #include "node.h"
 
-U64 Node::minorMoves(const U64 p) const // A minor move is a move which does not jump over a piece; it moves one square only.
+inline U64 Node::minorMoves(const U64 p) const // A minor move is a move which does not jump over a piece; it moves one square only.
 {
   return (p >> 8 | (p >> 7 & NOT_A) | (p >> 1 & NOT_H) | (p << 1 & NOT_A) | (p << 7 & NOT_H) | p << 8) & ~playerAll;
   //                                                                                                      ^ make sure the destination is empty.
 }
 
-U64 Node::majorMoves(const U64 p) const // A major move is a move which jumps over a piece.
+inline U64 Node::majorMoves(const U64 p) const // A major move is a move which jumps over a piece.
 {
   U64 d = p;
   U64 previous = 0;
@@ -19,7 +19,7 @@ U64 Node::majorMoves(const U64 p) const // A major move is a move which jumps ov
   return d & ~p; // The starting position of the piece is not a valid destination
 }
 
-U64 Node::pieceMoves(const U64 p) const // Combines minor and major moves;
+inline U64 Node::pieceMoves(const U64 p) const // Combines minor and major moves;
 {
   return minorMoves(p) | majorMoves(p);
 }

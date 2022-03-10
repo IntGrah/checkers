@@ -1,7 +1,7 @@
 #include "evaluation.h"
 #include "node.h"
 
-int Node::tailPlayerOne() const
+inline int Node::tailPlayerOne() const
 {
     for (int i = 0; i < 15; ++i)
     {
@@ -13,7 +13,7 @@ int Node::tailPlayerOne() const
     return -1;
 }
 
-int Node::tailPlayerTwo() const
+inline int Node::tailPlayerTwo() const
 {
     {
         for (int i = 14; i >= 0; --i)

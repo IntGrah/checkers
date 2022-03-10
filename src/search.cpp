@@ -5,7 +5,7 @@
 #include "node.h"
 #include "search.h"
 
-int Node::evaluate(const int depth)
+inline int Node::evaluate(const int depth)
 {
     if (turn && tailPlayerTwo() == 3)
     {
@@ -29,7 +29,7 @@ int Node::evaluate(const int depth)
     return turn ? max(evaluations) : min(evaluations);
 }
 
-Node Node::bestMove(const int depth)
+Node &Node::bestMove(const int depth)
 {
     return populate()[std::distance(evaluations.begin(), std::find(evaluations.begin(), evaluations.end(), evaluate(depth)))];
 }
