@@ -12,10 +12,10 @@ Node::Node(const U64 playerOne, const U64 playerTwo, const bool turn, const int 
 }
 
 /*
-         O
-        O O
-       O O O
-      O O O O
+         o
+        o o
+       o o o
+      o o o o
      # # # # #
     # # # # # #
    # # # # # # #
@@ -23,10 +23,10 @@ Node::Node(const U64 playerOne, const U64 playerTwo, const bool turn, const int 
    # # # # # # #
     # # # # # #
      # # # # #
-      X X X X
-       X X X
-        X X
-         X
+      x x x x
+       x x x
+        x x
+         x
 */
 
 void Node::print() const
@@ -40,7 +40,7 @@ void Node::print() const
         for (int column = 0; column < row + 1; ++column)
         {
             int i = (63 - 8 * row + column * 7);
-            std::cout << ((playerAll >> i) & 1 ? ((playerOne >> i) & 1) ? "X " : "O " : "- ");
+            std::cout << ((playerAll >> i) & 1 ? ((playerOne >> i) & 1) ? "x " : "o " : "- ");
         }
         std::cout << "\n";
     }
@@ -53,7 +53,7 @@ void Node::print() const
         for (int column = 0; column < 15 - row; ++column)
         {
             int i = (14 - row + column * 7);
-            std::cout << ((playerAll >> i) & 1 ? ((playerOne >> i) & 1) ? "X " : "O " : "- ");
+            std::cout << ((playerAll >> i) & 1 ? ((playerOne >> i) & 1) ? "x " : "o " : "- ");
         }
         std::cout << "\n";
     }

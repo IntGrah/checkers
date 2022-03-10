@@ -1,3 +1,4 @@
+#include <cstdlib>
 #include <iostream>
 
 #include "bitboard.h"
@@ -37,16 +38,16 @@ const int index[64] = {
  *         Harald Prokop
  *         Keith H. Randall
  */
-int bitScanForward(U64 bb)
+int bitScanForward(const U64 bb)
 {
   constexpr U64 deBruijn64 = 0x03f79d71b4cb0a89;
   return index[((bb & -bb) * deBruijn64) >> 58];
 }
 
-int magnitude(U64 bb)
+int score(const U64 bb, const bool turn)
 {
   int index = bitScanForward(bb);
   int file = index % 8;
   int rank = (index - file) / 8;
-  return file + rank;
+  return 2 * (file + rank) + (turn ? -1 : 1) * std::abs(file - rank);
 }

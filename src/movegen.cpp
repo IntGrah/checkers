@@ -35,7 +35,7 @@ std::vector<Node> Node::populate() // Generates all possible child nodes.
     while (moves)
     {
       isolateBit(move, moves);
-      int sumChange = magnitude(move) - magnitude(piece);
+      int sumChange = score(move, turn) - score(piece, turn);
       if ((turn && sumChange < -2) || (!turn && sumChange > 2)) // Filter out moves which move backwards too much.
       {
         continue;

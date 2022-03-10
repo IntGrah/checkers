@@ -13,7 +13,7 @@ int main()
     while (!game.terminated())
     {
         game.print();
-        game = game.bestMove(3);
+        game = game.bestMove(4);
     }
     game.print();
 }

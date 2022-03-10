@@ -29,7 +29,7 @@ int Node::tailPlayerTwo() const
 
 int Node::heuristicEvaluate() const
 {
-    return sum + tailPlayerOne() + tailPlayerTwo() - 14;
+    return sum + 3 * tailPlayerOne() + 3 * tailPlayerTwo() - 28;
 }
 
 bool Node::terminated() const

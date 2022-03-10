@@ -29,8 +29,8 @@ typedef unsigned long long U64;
 
 void print(const U64 bb); // A debug function which pretty prints a bitboard.
 
-int bitScanForward(U64 bb); // Returns the index of the least significant set bit. This algorithm uses de Bruijn sequences to achieve constant time complexity.
+int bitScanForward(const U64 bb); // Returns the index of the least significant set bit. This algorithm uses de Bruijn sequences to achieve constant time complexity.
 
-int magnitude(U64 bb); // Computes the taxicab distance of a piece from (0, 0).
+int score(const U64 bb, const bool turn); // Computes the taxicab distance of a piece from (0, 0).
 
 #endif // #ifndef BITBOARD_H
