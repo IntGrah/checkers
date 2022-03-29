@@ -1,4 +1,3 @@
-#include <algorithm>
 #include <iostream>
 
 #include "evaluation.h"
@@ -31,5 +30,16 @@ inline int Node::evaluate(const int depth)
 
 Node &Node::bestMove(const int depth)
 {
-    return populate()[std::distance(evaluations.begin(), std::find(evaluations.begin(), evaluations.end(), evaluate(depth)))];
+    int evaluation = evaluate(depth);
+    std::cout << evaluation << "\n";
+    int index = 0;
+    while (index < evaluations.size())
+    {
+        if (evaluations[index] == evaluation)
+        {
+            break;
+        }
+        index++;
+    }
+    return populate()[index];
 }

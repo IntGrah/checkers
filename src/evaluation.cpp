@@ -5,7 +5,7 @@ inline int Node::tailPlayerOne() const
 {
     for (int i = 0; i < 15; ++i)
     {
-        if (!!(playerOne & diagonals[i]))
+        if (playerOne & diagonals[i])
         {
             return i;
         }
@@ -18,7 +18,7 @@ inline int Node::tailPlayerTwo() const
     {
         for (int i = 14; i >= 0; --i)
         {
-            if (!!(playerTwo & diagonals[i]))
+            if (playerTwo & diagonals[i])
             {
                 return i;
             }
